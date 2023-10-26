@@ -1,0 +1,53 @@
+.navbar-container {
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 50px 5px 50px;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-text {
+  color: #f7931e;
+  margin-left: 15px;
+  font-family: DM Sans;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.features-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-item {
+  margin-right: 35px;
+  font-weight: 700;
+}
+.nav-item1 {
+  color: #f7931e;
+}
+.button {
+  cursor: pointer;
+  outline: none;
+  border: 0px;
+  background-color: #f7931e;
+  color: white;
+}
+
+.logout {
+  width: Hug (73px);
+  height: Hug (32px);
+  padding: 8px;
+  border-radius: 8px;
+  gap: 8px;
+}

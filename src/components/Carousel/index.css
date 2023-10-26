@@ -1,0 +1,35 @@
+.container1 {
+  width: 100%;
+  padding-right: 65px;
+  padding-left: 65px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+.carousel-image {
+  width: 1110px;
+  height: 320px;
+  top: 146px;
+  left: 165px;
+  border-radius: 8px;
+}
+.carousel-card {
+  list-style: none;
+  margin: 5px;
+}
+.slick-dots {
+  bottom: 10px;
+}
+.slick-dots li {
+  background-color: white;
+  border-radius: 50%;
+  color: #ccc;
+}
+.slick-dots li.slick-active {
+  padding: 5px;
+  color: #ccc;
+}
