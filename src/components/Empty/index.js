@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import cook from '../../assets/cook.png'
 
 const Empty = () => {
@@ -14,9 +15,11 @@ const Empty = () => {
           <p className="error-desc">
             Your cart is empty. Add something from the menu.
           </p>
-          <button type="button" className="home-button button">
-            Order Now
-          </button>
+          <Link to="/">
+            <button type="button" className="home-button button">
+              Order Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

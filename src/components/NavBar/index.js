@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import websiteLogo from '../../assets/websiteLogo.png'
 
@@ -18,8 +19,12 @@ const NavBar = props => {
           <h1 className="logo-text">Tasty Kitchens</h1>
         </div>
         <div className="features-container">
-          <p className="nav-item">Home</p>
-          <p className="nav-item nav-item1">Cart</p>
+          <Link to="/">
+            <p className="nav-item">Home</p>
+          </Link>
+          <Link to="/cart">
+            <p className="nav-item nav-item1">Cart</p>
+          </Link>
           <div className="button1">
             <button type="button" className="logout button" onClick={onLogout}>
               Logout

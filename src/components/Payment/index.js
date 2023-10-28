@@ -1,10 +1,11 @@
+import {Link} from 'react-router-dom'
 import paymentSuccess from '../../assets/paymentSuccess.png'
+import NavBar from '../NavBar'
 import './index.css'
 
-const Payment = () => {
-  console.log('hi')
-
-  return (
+const Payment = () => (
+  <div>
+    <NavBar />
     <div className="main-container">
       <div className="app-container">
         <div className="error-container">
@@ -15,13 +16,15 @@ const Payment = () => {
           <p className="payment-desc">
             Thank you for ordering Your payment is successfully completed.
           </p>
-          <button type="button" className="home-button button">
-            Go To Home Page
-          </button>
+          <Link to="/">
+            <button type="button" className="home-button button">
+              Go To Home Page
+            </button>
+          </Link>
         </div>
       </div>
     </div>
-  )
-}
+  </div>
+)
 
 export default Payment
