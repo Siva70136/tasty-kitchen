@@ -1,5 +1,6 @@
 import {Route, Switch, BrowserRouter} from 'react-router-dom'
 import {useState} from 'react'
+import Cookies from 'js-cookie'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
 import Login from './components/Login'

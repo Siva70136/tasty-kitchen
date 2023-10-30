@@ -8,10 +8,10 @@ const Empty = () => {
     <div className="main-container">
       <div className="app-container">
         <div className="error-container">
-          <img src={cook} alt="error" className="error" />
+          <img src={cook} alt="empty cart" className="error" />
         </div>
         <div className="text-container">
-          <p className="error-head">No Orders Yet!</p>
+          <h1 className="error-head">No Order Yet!</h1>
           <p className="error-desc">
             Your cart is empty. Add something from the menu.
           </p>

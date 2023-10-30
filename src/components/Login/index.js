@@ -29,8 +29,8 @@ const Login = props => {
           expires: 30,
           path: '/',
         })
-        setErrorMsg('')
-        history.push('/')
+
+        history.replace('/')
       } else {
         setErrorMsg(data.error_msg)
       }
@@ -60,7 +60,9 @@ const Login = props => {
           <div>
             <h1 className="textHead">Login</h1>
             <form id="addUserForm" className="form">
-              <p className="left">USERNAME</p>
+              <label className="left" htmlFor="name">
+                USERNAME
+              </label>
               <input
                 type="text"
                 name=""
@@ -71,10 +73,12 @@ const Login = props => {
                 onChange={e => setEmail(e.target.value)}
               />
 
-              <p className="left">PASSWORD</p>
+              <label className="left" htmlFor="password">
+                PASSWORD
+              </label>
               <input
-                type={visible}
-                id="PWD"
+                type="password"
+                id="password"
                 value={password}
                 className="form-control input"
                 placeholder=""
@@ -86,9 +90,11 @@ const Login = props => {
                   Show Password
                 </label>
               </div>
-              <p id="emailErrMsg" className="warning">
-                {errorMsg}
-              </p>
+              {errorMsg && (
+                <p id="emailErrMsg" className="warning">
+                  {errorMsg}
+                </p>
+              )}
 
               <div className="button-container">
                 <button
@@ -104,7 +110,7 @@ const Login = props => {
         </div>
 
         <div className="image-container">
-          <img src={login} alt="login" className="login-image" />
+          <img src={login} alt="website login" className="login-image" />
         </div>
       </div>
     </div>

@@ -7,6 +7,9 @@
   justify-content: space-between;
   padding: 25px 50px 5px 50px;
 }
+li {
+  list-style: none;
+}
 .logo-container {
   display: flex;
   justify-content: center;

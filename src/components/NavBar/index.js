@@ -15,22 +15,24 @@ const NavBar = props => {
     <div className="navbar-container">
       <div className="navbar">
         <div className="logo-container">
-          <img src={websiteLogo} alt="website logo" className="logo" />
+          <Link to="/">
+            <img src={websiteLogo} alt="website logo" className="logo" />
+          </Link>
           <h1 className="logo-text">Tasty Kitchens</h1>
         </div>
-        <div className="features-container">
+        <ul className="features-container">
           <Link to="/">
-            <p className="nav-item">Home</p>
+            <li className="nav-item">Home</li>
           </Link>
           <Link to="/cart">
-            <p className="nav-item nav-item1">Cart</p>
+            <li className="nav-item nav-item1">Cart</li>
           </Link>
-          <div className="button1">
+          <li className="button1">
             <button type="button" className="logout button" onClick={onLogout}>
               Logout
             </button>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   )
