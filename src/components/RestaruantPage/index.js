@@ -1,12 +1,15 @@
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
+import Cookies from 'js-cookie'
+
 import {BsPlusSquare, BsDashSquare} from 'react-icons/bs'
 import Loader from 'react-loader-spinner'
-import {AiFillCloseCircle} from 'react-icons/ai'
-import Cookies from 'js-cookie'
+
 import NavBar from '../NavBar'
 import Footer from '../Footer'
 import rating from '../../assets/rating.png'
 import TastyContext from '../../context'
+import websiteLogo from '../../assets/websiteLogo.png'
 
 import './index.css'
 
@@ -14,6 +17,11 @@ const RestaurantPage = props => {
   const [data, setData] = useState([])
   const [quantity, setQuantity] = useState(1)
   const [load, setLoad] = useState(false)
+  const {history} = props
+  const onLogout = () => {
+    Cookies.remove('jwt_token')
+    history.replace('/login')
+  }
 
   const token = Cookies.get('jwt_token')
   const {match} = props
@@ -86,7 +94,37 @@ const RestaurantPage = props => {
         return (
           <div className="home-container">
             <div className="">
-              <NavBar />
+              <div className="navbar-container">
+                <div className="navbar">
+                  <div className="logo-container">
+                    <Link to="/">
+                      <img
+                        src={websiteLogo}
+                        alt="website logo"
+                        className="logo"
+                      />
+                    </Link>
+                    <h1 className="logo-text">Tasty Kitchens</h1>
+                  </div>
+                  <ul className="features-container">
+                    <Link to="/">
+                      <li className="nav-item">Home</li>
+                    </Link>
+                    <Link to="/cart">
+                      <li className="nav-item nav-item1">Cart</li>
+                    </Link>
+                    <li className="button1">
+                      <button
+                        type="button"
+                        className="logout button"
+                        onClick={onLogout}
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
             {load ? (
               <div className="loader-container" data-testid="loader">

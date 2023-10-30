@@ -4,6 +4,7 @@ import Loader from 'react-loader-spinner'
 import {BsChevronRight, BsChevronLeft} from 'react-icons/bs'
 import {HiOutlineMenuAlt2} from 'react-icons/hi'
 import Cookies from 'js-cookie'
+import websiteLogo from '../../assets/websiteLogo.png'
 import NavBar from '../NavBar'
 import Footer from '../Footer'
 import Carousel from '../Carousel'
@@ -24,7 +25,7 @@ const sortByOptions = [
   },
 ]
 
-const Home = () => {
+const Home = props => {
   const [data, setData] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const [sort, setSort] = useState(sortByOptions[0].value)
@@ -89,11 +90,41 @@ const Home = () => {
   if (data.length > 0) {
     itemsToDisplay = data.slice(startIndex, endIndex)
   }
-
+  const {history} = props
+  const onLogout = () => {
+    Cookies.remove('jwt_token')
+    history.replace('/login')
+  }
   return (
     <div className="home-container">
       <div className="">
-        <NavBar />
+        <div className="navbar-container">
+          <div className="navbar">
+            <div className="logo-container">
+              <Link to="/">
+                <img src={websiteLogo} alt="website logo" className="logo" />
+              </Link>
+              <h1 className="logo-text">Tasty Kitchens</h1>
+            </div>
+            <ul className="features-container">
+              <Link to="/">
+                <li className="nav-item">Home</li>
+              </Link>
+              <Link to="/cart">
+                <li className="nav-item nav-item1">Cart</li>
+              </Link>
+              <li className="button1">
+                <button
+                  type="button"
+                  className="logout button"
+                  onClick={onLogout}
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div className="">
         <Carousel />
@@ -129,7 +160,12 @@ const Home = () => {
           <hr className="line" />
           <ul className="restaurants-list">
             {itemsToDisplay.map(each => (
-              <Link to={`restaurant/${each.id}`} key={each.id} className="c">
+              <Link
+                to={`restaurant/${each.id}`}
+                key={each.id}
+                className="c"
+                testid="restaurant-item"
+              >
                 <li className="restaurant-card">
                   <img
                     src={each.image}
@@ -152,13 +188,23 @@ const Home = () => {
             ))}
           </ul>
           <div className="pagination">
-            <button type="button" className="nav" onClick={goToPreviousPage}>
+            <button
+              type="button"
+              className="nav"
+              onClick={goToPreviousPage}
+              data-testid="pagination-right-button"
+            >
               <BsChevronLeft />
             </button>
-            <span className="page">
+            <span className="page" data-testid="active-page-number">
               {currentPage} of {totalPages}
             </span>
-            <button onClick={goToNextPage} className="nav" type="button">
+            <button
+              className="nav"
+              type="button"
+              data-testid="pagination-left-button"
+              onClick={goToNextPage}
+            >
               <BsChevronRight />
             </button>
           </div>
